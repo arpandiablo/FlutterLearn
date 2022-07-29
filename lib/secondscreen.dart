@@ -13,7 +13,8 @@ class SecondScreen extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           onPressed: (){
-
+            Navigator.pop(context);
+            // Navigator.pushReplacementNamed(context, '/');
           },
           child: Text('Go Back'),
         ),

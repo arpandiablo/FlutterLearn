@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/firstscreen.dart';
+import 'package:untitled/secondscreen.dart';
+import 'package:untitled/task1.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -20,7 +22,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.teal,
       ),
 
-      home: FirstScreen(),
+      home: LoginPage(),
+      // initialRoute: '/',
+      // routes: {
+      //   '/' : (context) =>  FirstScreen(),
+      //   '/second' : (context) =>  SecondScreen(),
+      // },
       // const MyHomePage(title: 'Avatar'),
     );
   }
