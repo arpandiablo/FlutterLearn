@@ -24,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
               //greeting text
               const SizedBox(height: 40),
               Padding(
-                padding: const EdgeInsets.only(left: 10),
+                padding: const EdgeInsets.only(right: 250),
                 child: Text("Welcome",
                   style: GoogleFonts.secularOne(
                     fontSize: 42,
@@ -34,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 14),
+                padding: const EdgeInsets.only(right: 150),
                 child: Text("Arpan Gautam",
                   style: GoogleFonts.secularOne(
                     fontSize: 42,
