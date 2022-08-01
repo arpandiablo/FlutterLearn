@@ -22,12 +22,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.teal,
       ),
 
-      home: LoginPage(),
-      // initialRoute: '/',
-      // routes: {
-      //   '/' : (context) =>  FirstScreen(),
-      //   '/second' : (context) =>  SecondScreen(),
-      // },
+      // home: FirstScreen(),
+      initialRoute: '/',
+      routes: {
+        '/' : (context) =>  FirstScreen(),
+        '/second' : (context) =>  SecondScreen(),
+      },
       // const MyHomePage(title: 'Avatar'),
     );
   }

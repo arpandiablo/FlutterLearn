@@ -9,14 +9,15 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-
   bool value = false;
+  String substring = ".com";
+  String substring1 = "@";
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.greenAccent.shade100,
-
       body: SafeArea(
         child: Center(
           child: Column(
@@ -25,7 +26,8 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(height: 40),
               Padding(
                 padding: const EdgeInsets.only(right: 250),
-                child: Text("Welcome",
+                child: Text(
+                  "Welcome",
                   style: GoogleFonts.secularOne(
                     fontSize: 42,
                     fontWeight: FontWeight.bold,
@@ -35,7 +37,8 @@ class _LoginPageState extends State<LoginPage> {
               ),
               Padding(
                 padding: const EdgeInsets.only(right: 150),
-                child: Text("Arpan Gautam",
+                child: Text(
+                  "Arpan Gautam",
                   style: GoogleFonts.secularOne(
                     fontSize: 42,
                     fontWeight: FontWeight.bold,
@@ -44,11 +47,17 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
 
-              const SizedBox(height: 5.0,),
+              const SizedBox(
+                height: 5.0,
+              ),
 
-              const SizedBox(height: 40.0,),
+              const SizedBox(
+                height: 40.0,
+              ),
 
-              Padding(padding: const EdgeInsets.only(right: 400,bottom: 5),child: Text('Email')),
+              Padding(
+                  padding: const EdgeInsets.only(right: 400, bottom: 5),
+                  child: Text('Email')),
 
               //email text field
               Padding(
@@ -61,19 +70,32 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   child: Padding(
                     padding: EdgeInsets.only(left: 20.0),
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'Enter your email',
-                      ),
+                    child: Form(
+                      key: _formKey,
+                      child: TextFormField(
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Enter your email',
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty || !value.contains(substring) || !value.contains(substring1)) {
+                              return 'Enter Valid Email';
+                            }
+                            return null;
+                          } // validator
+                          ),
                     ),
                   ),
                 ),
               ),
 
-              const SizedBox(height: 20.0,),
+              const SizedBox(
+                height: 20.0,
+              ),
 
-              Padding(padding: const EdgeInsets.only(right: 380,bottom: 5),child: Text('Password')),
+              Padding(
+                  padding: const EdgeInsets.only(right: 380, bottom: 5),
+                  child: Text('Password')),
 
               //password text field
               Padding(
@@ -100,9 +122,7 @@ class _LoginPageState extends State<LoginPage> {
               //login button
               const SizedBox(height: 20.0),
 
-              Row(
-                  mainAxisAlignment:MainAxisAlignment.start,
-                  children: [
+              Row(mainAxisAlignment: MainAxisAlignment.start, children: [
                 Container(
                   child: Padding(
                     padding: const EdgeInsets.only(left: 20),
@@ -116,50 +136,72 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
-                    Container(
-                      child: Text('Remember Me',style: TextStyle(color: Colors.red)),
-                    ),
-                    Container(
-                      child: Padding(padding: const EdgeInsets.only(left: 220),
-                          child: Text('Forget Password',style: TextStyle(color: Colors.red))),
-                    )
+                Container(
+                  child:
+                      Text('Remember Me', style: TextStyle(color: Colors.red)),
+                ),
+                Container(
+                  child: Padding(
+                      padding: const EdgeInsets.only(left: 220),
+                      child: Text('Forget Password',
+                          style: TextStyle(color: Colors.red))),
+                )
               ]),
 
               const SizedBox(height: 20.0),
 
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Container(
-                  padding: const EdgeInsets.all(20.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: Colors.greenAccent.shade700,
+                child: ElevatedButton(
+                  child: Container(
+                    padding: const EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: Colors.greenAccent.shade700,
+                    ),
+                    child: const Center(
+                        child: Text(
+                      'Sign In',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16.0),
+                    )),
                   ),
-                  child: const Center(
-                      child: Text('Sign In',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16.0
-                        ),)),
+                  onPressed: () {
+                    // Validate returns true if the form is valid, or false otherwise.
+                    if (_formKey.currentState!.validate()) {
+                      // If the form is valid, display a snackbar. In the real world,
+                      // you'd often call a server or save the information in a database.
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Valid Input')),
+                      );
+                    }
+                  },
                 ),
               ),
               //not a member? register now
 
-              const SizedBox(height: 20.0,),
+              const SizedBox(
+                height: 20.0,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
-                  Text('Don\'t have account?',
+                  Text(
+                    'Don\'t have account?',
                     style: TextStyle(
                       color: Colors.black87,
-                    ),),
+                    ),
+                  ),
                   const SizedBox(width: 10),
-                  Text('Sign Up',
+                  Text(
+                    'Sign Up',
                     style: TextStyle(
                       color: Colors.orange,
                       fontWeight: FontWeight.bold,
-                    ),)
+                    ),
+                  )
                 ],
               )
             ],
