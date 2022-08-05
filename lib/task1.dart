@@ -9,7 +9,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  bool value = false;
+  bool tristate = false;
   String substring = ".com";
   String substring1 = "@";
   final _formKey = GlobalKey<FormState>();
@@ -17,6 +17,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.greenAccent.shade100,
       body: SafeArea(
         child: Center(
@@ -25,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
               //greeting text
               const SizedBox(height: 40),
               Padding(
-                padding: const EdgeInsets.only(right: 250),
+                padding: const EdgeInsets.only(right: 200),
                 child: Text(
                   "Welcome",
                   style: GoogleFonts.secularOne(
@@ -36,7 +37,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 150),
+                padding: const EdgeInsets.only(right: 120),
                 child: Text(
                   "Arpan Gautam",
                   style: GoogleFonts.secularOne(
@@ -56,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
 
               Padding(
-                  padding: const EdgeInsets.only(right: 400, bottom: 5),
+                  padding: const EdgeInsets.only(right: 300, bottom: 5),
                   child: Text('Email')),
 
               //email text field
@@ -94,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
 
               Padding(
-                  padding: const EdgeInsets.only(right: 380, bottom: 5),
+                  padding: const EdgeInsets.only(right: 280, bottom: 5),
                   child: Text('Password')),
 
               //password text field
@@ -127,10 +128,10 @@ class _LoginPageState extends State<LoginPage> {
                   child: Padding(
                     padding: const EdgeInsets.only(left: 20),
                     child: Checkbox(
-                      value: this.value,
+                      value: this.tristate,
                       onChanged: (bool) {
                         setState(() {
-                          this.value = true;
+                          this.tristate = true;
                         });
                       },
                     ),
@@ -142,7 +143,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 Container(
                   child: Padding(
-                      padding: const EdgeInsets.only(left: 220),
+                      padding: const EdgeInsets.only(left: 120),
                       child: Text('Forget Password',
                           style: TextStyle(color: Colors.red))),
                 )
@@ -152,7 +153,7 @@ class _LoginPageState extends State<LoginPage> {
 
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: ElevatedButton(
+                child: InkWell(
                   child: Container(
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
@@ -168,14 +169,10 @@ class _LoginPageState extends State<LoginPage> {
                           fontSize: 16.0),
                     )),
                   ),
-                  onPressed: () {
+                  onTap: () {
                     // Validate returns true if the form is valid, or false otherwise.
                     if (_formKey.currentState!.validate()) {
-                      // If the form is valid, display a snackbar. In the real world,
-                      // you'd often call a server or save the information in a database.
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Valid Input')),
-                      );
+                      Navigator.pushReplacementNamed(context, '/second');
                     }
                   },
                 ),
