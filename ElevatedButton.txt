@@ -1,0 +1,26 @@
+child: ElevatedButton(
+                  child: Center(
+                    child: Text('Get Started'),
+                  ),
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                      primary: Colors.purple,
+                      fixedSize: Size(200, 50),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(50))),
+                ),
+
+
+
+************************************************************************
+
+
+Container(
+                  height: 50,
+                  width: 200,
+                  child: Center(child: Text('Get Started',style: TextStyle(fontWeight: FontWeight.w900))),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      gradient:
+                          LinearGradient(colors: [Colors.pink, Colors.purple])),
+                ),

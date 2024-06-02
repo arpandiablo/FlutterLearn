@@ -1,0 +1,19 @@
+TextButton(
+                            onPressed: () => showDialog<String>(
+                                context: context,
+                                builder: (BuildContext context) => AlertDialog(
+                                      title: Text('Are you ready?'),
+                                      content: Text('Sachhai Ready Ho?'),
+                                      actions: <Widget>[
+                                        TextButton(
+                                            onPressed: () =>
+                                                Navigator.pop(context),
+                                            child: Text('Haina')),
+                                        TextButton(
+                                            onPressed: () =>
+                                                Navigator.pop(context),
+                                            child: Text('Ho Ho')),
+                                      ],
+                                    )),
+                            child: Text("Show Dialog",
+                                style: TextStyle(color: Colors.black))),

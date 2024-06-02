@@ -1,0 +1,46 @@
+import 'package:flutter/material.dart';
+import 'package:untitled/pageview1.dart';
+import 'package:untitled/pageview2.dart';
+import 'package:untitled/pageview3.dart';
+
+class HomePage extends StatelessWidget {
+  HomePage({Key? key}) : super(key: key);
+
+  final controller = PageController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('List Check'),
+      ),
+      body: PageView(
+        controller: controller,
+        scrollDirection: Axis.horizontal,
+        physics: BouncingScrollPhysics(),
+        children: const <Widget> [
+          firstscreen(),
+          secondscreen(),
+          thirdscreen(),
+        ],
+      ),
+    );
+  }
+}
+
+**************firstscreen()***************
+
+
+import 'package:flutter/material.dart';
+
+class firstscreen extends StatelessWidget {
+  const firstscreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(child: Text('first screen')),
+      backgroundColor: Colors.red,
+    );
+  }
+}

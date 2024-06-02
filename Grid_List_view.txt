@@ -1,0 +1,54 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+class FirstScreen extends StatelessWidget {
+  FirstScreen({Key? key}) : super(key: key);
+
+  List<String> itemList = [
+    'Arpan Gautam',
+    'Discord',
+    'Github',
+    'Messenger',
+    'Fall Guys',
+  ];
+  List<String> imageList = [
+    'image/A1.jpg',
+    'image/discord.png',
+    'image/github.png',
+    'image/messenger.png',
+    'image/FG.png',
+  ];
+  List<String> jobList = [
+    'Job1',
+    'Job2',
+    'Job3',
+    'Job4',
+    'Job5',
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('List Check')),
+      body:
+      GridView.count(crossAxisCount: 4,
+        children: List<Widget>.generate(32, (index){
+          return GridTile(child: Card(
+            color: Colors.blue.shade200,
+            child: Center(
+              child: Text('tile$index'),
+            ),
+          ));
+        }
+      ),)
+      // ListView.separated(separatorBuilder: (context, index) => Divider(),
+      //     itemCount: itemList.length,
+      //     itemBuilder: (context, index) {
+      //       return myList(
+      //         title: itemList[index],
+      //         image: imageList[index],
+      //         job: jobList[index],
+      //       );
+      //     }),
+    );
+  }
+}

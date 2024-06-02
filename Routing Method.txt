@@ -1,0 +1,5 @@
+initialRoute: '/',
+      routes: {
+        '/' : (context) =>  FirstScreen(),
+        '/second' : (context) =>  ThirdScreen(),
+      },

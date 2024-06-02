@@ -1,0 +1,40 @@
+import 'package:flutter/material.dart';
+
+class FirstScreen extends StatelessWidget {
+  const FirstScreen({Key? key}) : super(key: key);
+  
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('List Check')),
+      body:
+      GridView.count(crossAxisCount: 4,
+        children: List<Widget>.generate(32, (index){
+          return GridTile(child: Mylist(item: 'Tile$index',
+            ),
+          );
+        }
+      ),)
+    );
+  }
+}
+class Mylist extends StatelessWidget {
+  final String item;
+
+  const Mylist({Key? key, required this.item}) : super(key: key);
+
+  get index => null;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.blue.shade200,
+        ),
+        child: Center(child: Text(item)),
+      ),
+    );
+  }
+}

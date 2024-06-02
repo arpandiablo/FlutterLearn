@@ -1,0 +1,214 @@
+import 'package:flutter/material.dart';
+
+class FirstScreen extends StatelessWidget {
+  FirstScreen({Key? key}) : super(key: key);
+
+  List<String> itemList=[
+    'Gajar',
+    'Mula',
+    'Kakra',
+    'Khursani',
+    'Gajar',
+    'Mula',
+    'Kakra',
+    'Khursani',
+    'Gajar',
+    'Mula',
+    'Kakra',
+    'Khursani',
+    'Gajar',
+    'Mula',
+    'Kakra',
+    'Khursani',
+    'Gajar',
+    'Mula',
+    'Kakra',
+    'Khursani',
+    'Gajar',
+    'Mula',
+    'Kakra',
+    'Khursani',
+    'Gajar',
+    'Mula',
+    'Kakra',
+    'Khursani',
+    'Gajar',
+    'Mula',
+    'Kakra',
+    'Khursani',
+    'Gajar',
+    'Mula',
+    'Kakra',
+    'Khursani',
+    'Gajar',
+    'Mula',
+    'Kakra',
+    'Khursani',
+    'Gajar',
+    'Mula',
+    'Kakra',
+    'Khursani',
+    'Gajar',
+    'Mula',
+    'Kakra',
+    'Khursani',
+  ];
+  List<String> imageList=[
+    'image/discord.png',
+    'image/github.png',
+    'image/FG.png',
+    'image/img.png',
+    'image/discord.png',
+    'image/github.png',
+    'image/FG.png',
+    'image/img.png',
+    'image/discord.png',
+    'image/github.png',
+    'image/FG.png',
+    'image/img.png',
+    'image/discord.png',
+    'image/github.png',
+    'image/FG.png',
+    'image/img.png',
+    'image/discord.png',
+    'image/github.png',
+    'image/FG.png',
+    'image/img.png',
+    'image/discord.png',
+    'image/github.png',
+    'image/FG.png',
+    'image/img.png',
+    'image/discord.png',
+    'image/github.png',
+    'image/FG.png',
+    'image/img.png',
+    'image/discord.png',
+    'image/github.png',
+    'image/FG.png',
+    'image/img.png',
+    'image/discord.png',
+    'image/github.png',
+    'image/FG.png',
+    'image/img.png',
+    'image/discord.png',
+    'image/github.png',
+    'image/FG.png',
+    'image/img.png',
+    'image/discord.png',
+    'image/github.png',
+    'image/FG.png',
+    'image/img.png',
+    'image/discord.png',
+    'image/github.png',
+    'image/FG.png',
+    'image/img.png',
+  ];
+  List<String> priceList=[
+    '\$100',
+    '\$200',
+    '\$300',
+    '\$400',
+    '\$100',
+    '\$200',
+    '\$300',
+    '\$400',
+    '\$100',
+    '\$200',
+    '\$300',
+    '\$400',
+    '\$100',
+    '\$200',
+    '\$300',
+    '\$400',
+    '\$100',
+    '\$200',
+    '\$300',
+    '\$400',
+    '\$100',
+    '\$200',
+    '\$300',
+    '\$400',
+    '\$100',
+    '\$200',
+    '\$300',
+    '\$400',
+    '\$100',
+    '\$200',
+    '\$300',
+    '\$400',
+    '\$100',
+    '\$200',
+    '\$300',
+    '\$400',
+    '\$100',
+    '\$200',
+    '\$300',
+    '\$400',
+    '\$100',
+    '\$200',
+    '\$300',
+    '\$400',
+    '\$100',
+    '\$200',
+    '\$300',
+    '\$400',
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(title: const Text('List Check')),
+        body:
+        GridView.count(crossAxisCount: 2,
+          children: List<Widget>.generate(25, (index){
+            return GridTile(child: Mylist(list1: itemList[index],list2: imageList[index],list3: priceList[index],
+            ),
+            );
+          }
+          ),)
+    );
+  }
+}
+class Mylist extends StatelessWidget {
+  final String list1;
+  final String list2;
+  final String list3;
+  Mylist({Key? key, required this.list1, required this.list2, required this.list3}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: InkWell(
+        onTap: (){
+          Navigator.pushNamed(context, '/second');
+        },
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.grey.shade300,
+          ),
+          child: columnWithContent(),
+        ),
+      ),
+    );
+  }
+
+  columnWithContent() {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 200),
+          child: Icon(Icons.heart_broken),
+        ),
+        Center(child: Image.asset(list2,width: 150,height: 150,)),
+        Text(list1),
+        Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Text(list3),
+            Icon(Icons.add)
+          ],
+        ),
+      ],
+    );
+  }
+}

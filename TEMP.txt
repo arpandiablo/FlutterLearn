@@ -1,0 +1,51 @@
+******GridView.builder**********
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('List Check'),
+      ),
+      body: GridView.builder(
+        physics: const BouncingScrollPhysics(),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 4,
+          childAspectRatio: 1,
+          crossAxisSpacing: 2,
+          mainAxisSpacing: 2,
+        ),
+        itemCount: itemList.length,
+        itemBuilder: (context, index) {
+          return Mylist(
+              list1: itemList[index],list2: imageList[index],list3: priceList[index],
+          );
+        },
+      ),
+    );
+  }
+}
+
+********************************
+
+*********GridView***************
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('List Check')),
+      body:
+      GridView(
+        gridDelegate:SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+        children:
+          <Widget>[
+            FlutterLogo(),
+            FlutterLogo(),
+            FlutterLogo(),
+            FlutterLogo(),
+          ]
+      )
+    );
+  }
+}
+
+*******************************

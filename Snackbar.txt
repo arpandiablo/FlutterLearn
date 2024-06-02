@@ -1,0 +1,13 @@
+ElevatedButton(
+                            // style: ButtonStyle(backgroundColor: ),
+                            onPressed: () => ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                    backgroundColor: Colors.blue,
+                                    content: Text('Ho Ho',
+                                        style: TextStyle(color: Colors.yellow)),
+                                    action: SnackBarAction(
+                                      label: 'Lets Go!!',
+                                      textColor: Colors.yellow,
+                                      onPressed: () {},
+                                    ))),
+                            child: Text('Show Snackbar',
+                                style: TextStyle(color: Colors.yellow))),
